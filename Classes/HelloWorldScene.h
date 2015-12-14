@@ -2,13 +2,15 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "Food.hpp"
 
 class HelloWorld : public cocos2d::Layer
 {
 private:
-    cocos2d::Sprite* createRandomSprite(std::string fileName);
-    cocos2d::Vec2 getRandomPosition(cocos2d::Sprite* sprite);
-    
+    //cocos2d::Sprite* createRandomSprite(std::string fileName);
+    //cocos2d::Vec2 getRandomPosition(cocos2d::Sprite* sprite);
+    //void setRandomMove(cocos2d::Sprite* sprite);
+
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
