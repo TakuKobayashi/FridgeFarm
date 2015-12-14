@@ -31,9 +31,16 @@ bool HelloWorld::init()
         return false;
     }
     
-    auto rootNode = CSLoader::createNode("MainScene.csb");
+    auto sprite = Sprite::create("pig.jpg");
+    //位置を設定
+    sprite->setPosition(Vec2(300,200));
+    
+    //画面に追加をしています。
+    addChild(sprite);
 
-    addChild(rootNode);
+    //auto rootNode = CSLoader::createNode("MainScene.csb");
+
+    //addChild(rootNode);
 
     return true;
 }
