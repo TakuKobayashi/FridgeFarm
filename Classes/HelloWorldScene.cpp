@@ -31,12 +31,23 @@ bool HelloWorld::init()
         return false;
     }
     
-    auto sprite = createRandomSprite("pig.jpg");
+    std::vector<cocos2d::Sprite*> sprites;
+    sprites.push_back(createRandomSprite("caw1.png"));
+    sprites.push_back(createRandomSprite("fish1.png"));
+    sprites.push_back(createRandomSprite("pmang1.png"));
+    sprites.push_back(createRandomSprite("carrot1.png"));
+    sprites.push_back(createRandomSprite("cook1.png"));
+    sprites.push_back(createRandomSprite("egg1.png"));
+    sprites.push_back(createRandomSprite("leaf1.png"));
+    sprites.push_back(createRandomSprite("pig1.png"));
+    sprites.push_back(createRandomSprite("tomato1.png"));
     
     //位置を設定
 
     //画面に追加をしています。
-    addChild(sprite);
+    for(auto s : sprites){
+       addChild(s);
+    }
 
     //auto rootNode = CSLoader::createNode("MainScene.csb");
 
@@ -47,9 +58,8 @@ bool HelloWorld::init()
 
 cocos2d::Sprite* HelloWorld::createRandomSprite(std::string fileName){
     auto windowSize = Director::getInstance()->getWinSize();
-    auto sprite = Sprite::create("pig.jpg");
+    auto sprite = Sprite::create(fileName);
     sprite->setPosition(getRandomPosition(sprite));
-    
     sprite->runAction(MoveTo::create(10, getRandomPosition(sprite)));
     return sprite;
 }
