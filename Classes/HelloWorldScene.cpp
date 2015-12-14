@@ -31,9 +31,12 @@ bool HelloWorld::init()
         return false;
     }
     
+    auto windowSize = Director::getInstance()->getWinSize();
+    
     auto sprite = Sprite::create("pig.jpg");
+
     //位置を設定
-    sprite->setPosition(Vec2(300,200));
+    sprite->setPosition(Vec2(rand() % (int)(windowSize.width - sprite->getContentSize().width),rand() % (int)(windowSize.height - sprite->getContentSize().height)));
     
     //画面に追加をしています。
     addChild(sprite);
