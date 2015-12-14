@@ -43,14 +43,14 @@ void Food::spoil(){
 }
 
 void Food::executeRandomMove(){
-    mSprite->runAction(cocos2d::MoveTo::create(10, getRandomPosition()));
+    //mSprite->runAction(cocos2d::MoveTo::create(10, getRandomPosition()));
     
-    /*
-     auto action = MoveTo::create(10, getRandomPosition(sprite));
+    auto action = cocos2d::MoveTo::create(10, getRandomPosition());
      // ラムダ式でコールバックを設定する
-     auto callback = CallFunc::create(this,callfunc_selector(HelloWorld::setRandomMove(sprite)));
+    auto callback = cocos2d::CallFunc::create([this](){
+        executeRandomMove();
+    });
      // アクションとコールバックをシーケンスに設定する
-     auto seq = Sequence::create(action, callback, NULL);
-     sprite->runAction(seq);
-     */
-}
+    auto seq = cocos2d::Sequence::create(action, callback, NULL);
+     mSprite->runAction(seq);
+ }
