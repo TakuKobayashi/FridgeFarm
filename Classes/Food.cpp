@@ -10,6 +10,7 @@
 
 Food::Food(std::string fileName)
 {
+    mFileName = fileName;
     mSprite = cocos2d::Sprite::create(fileName);
     mSprite->setPosition(getRandomPosition());
 }
@@ -27,6 +28,18 @@ cocos2d::Vec2 Food::getRandomPosition(){
 
 cocos2d::Sprite* Food::getSprite(){
     return mSprite;
+}
+
+std::string Food::getFilename(){
+    return mFileName;
+}
+
+void Food::spoil(){
+    if(mIsSpoiled == true) return;
+    size_t f = mFileName.find("1");
+    mFileName.replace(f, std::string("1").length(), "2");
+    mSprite->setTexture(mFileName);
+    mIsSpoiled = true;
 }
 
 void Food::executeRandomMove(){

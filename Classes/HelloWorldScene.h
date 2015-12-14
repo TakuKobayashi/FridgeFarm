@@ -7,6 +7,8 @@
 class HelloWorld : public cocos2d::Layer
 {
 private:
+    float executeTime = 0;
+    std::vector<Food*> sprites;
     //cocos2d::Sprite* createRandomSprite(std::string fileName);
     //cocos2d::Vec2 getRandomPosition(cocos2d::Sprite* sprite);
     //void setRandomMove(cocos2d::Sprite* sprite);
@@ -17,6 +19,7 @@ public:
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
+    void update(float delta);
 
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);

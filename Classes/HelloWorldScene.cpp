@@ -31,7 +31,6 @@ bool HelloWorld::init()
         return false;
     }
     
-    std::vector<Food*> sprites;
     sprites.push_back(new Food("caw1.png"));
     sprites.push_back(new Food("fish1.png"));
     sprites.push_back(new Food("pmang1.png"));
@@ -54,7 +53,18 @@ bool HelloWorld::init()
 
     //addChild(rootNode);
 
+    scheduleUpdate();
     return true;
+}
+
+void HelloWorld::update(float dt){
+    executeTime += dt;
+    if(5 < executeTime){
+        for(auto f : sprites){
+            f->spoil();
+        }
+    }
+    log("%f", executeTime);
 }
 
 /*
