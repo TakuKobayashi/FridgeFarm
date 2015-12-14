@@ -64,7 +64,6 @@ void HelloWorld::update(float dt){
             f->spoil();
         }
     }
-    log("%f", executeTime);
 }
 
 /*
