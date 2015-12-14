@@ -58,5 +58,3 @@ publish/*
 *.opensdf
 *.sdf
 
-#Images
-Resources/res/*
