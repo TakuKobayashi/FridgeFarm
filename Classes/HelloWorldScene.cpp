@@ -31,13 +31,10 @@ bool HelloWorld::init()
         return false;
     }
     
-    auto windowSize = Director::getInstance()->getWinSize();
+    auto sprite = createRandomSprite("pig.jpg");
     
-    auto sprite = Sprite::create("pig.jpg");
-
     //位置を設定
-    sprite->setPosition(Vec2(rand() % (int)(windowSize.width - sprite->getContentSize().width),rand() % (int)(windowSize.height - sprite->getContentSize().height)));
-    
+
     //画面に追加をしています。
     addChild(sprite);
 
@@ -46,4 +43,13 @@ bool HelloWorld::init()
     //addChild(rootNode);
 
     return true;
+}
+
+cocos2d::Sprite* HelloWorld::createRandomSprite(std::string fileName){
+    auto windowSize = Director::getInstance()->getWinSize();
+    auto sprite = Sprite::create("pig.jpg");
+    sprite->setPosition(Vec2(rand() % (int)(windowSize.width - sprite->getContentSize().width),rand() % (int)(windowSize.height - sprite->getContentSize().height)));
+    
+    sprite->runAction(MoveTo::create(10, Vec2(rand() % (int)(windowSize.width - sprite->getContentSize().width),rand() % (int)(windowSize.height - sprite->getContentSize().height))));
+    return sprite;
 }
