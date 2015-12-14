@@ -48,8 +48,15 @@ bool HelloWorld::init()
 cocos2d::Sprite* HelloWorld::createRandomSprite(std::string fileName){
     auto windowSize = Director::getInstance()->getWinSize();
     auto sprite = Sprite::create("pig.jpg");
-    sprite->setPosition(Vec2(rand() % (int)(windowSize.width - sprite->getContentSize().width),rand() % (int)(windowSize.height - sprite->getContentSize().height)));
+    sprite->setPosition(getRandomPosition(sprite));
     
-    sprite->runAction(MoveTo::create(10, Vec2(rand() % (int)(windowSize.width - sprite->getContentSize().width),rand() % (int)(windowSize.height - sprite->getContentSize().height))));
+    sprite->runAction(MoveTo::create(10, getRandomPosition(sprite)));
     return sprite;
 }
+
+cocos2d::Vec2 HelloWorld::getRandomPosition(cocos2d::Sprite* sprite){
+    auto windowSize = Director::getInstance()->getWinSize();
+    auto spriteSize = sprite->getContentSize();
+    return Vec2(rand() % (int)(windowSize.width - spriteSize.width), rand() % (int)(windowSize.height - sprite->getContentSize().height));
+}
+

@@ -7,6 +7,7 @@ class HelloWorld : public cocos2d::Layer
 {
 private:
     cocos2d::Sprite* createRandomSprite(std::string fileName);
+    cocos2d::Vec2 getRandomPosition(cocos2d::Sprite* sprite);
     
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
