@@ -59,7 +59,7 @@ bool HelloWorld::init()
 
 void HelloWorld::update(float dt){
     executeTime += dt;
-    if(45 < executeTime){
+    if(30 < executeTime){
         for(auto f : sprites){
             f->spoil();
         }
